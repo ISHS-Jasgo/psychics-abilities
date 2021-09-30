@@ -21,6 +21,11 @@ subprojects {
     repositories {
         maven(url = "https://papermc.io/repo/repository/maven-public/")
         maven(url = "https://jitpack.io/")
+        maven(url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/")
+        maven(url = "https://oss.sonatype.org/content/repositories/central")
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        maven("https://oss.sonatype.org/content/groups/public/")
+        maven(url = "https://libraries.minecraft.net/")
         mavenLocal()
     }
 
@@ -29,8 +34,10 @@ subprojects {
         compileOnly(kotlin("reflect"))
         compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
         compileOnly("com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT")
-        compileOnly("com.github.noonmaru:tap:3.2.4")
+        compileOnly("com.github.noonmaru:tap:3.2.5")
         compileOnly("com.github.noonmaru:psychics:0.9.3")
+        compileOnly("org.spigotmc:spigot:1.16.4-R0.1-SNAPSHOT")
+        compileOnly("com.mojang:authlib:2.1.28")
 
 //        testImplementation("junit:junit:4.13")
 //        testImplementation("org.mockito:mockito-core:3.3.3")

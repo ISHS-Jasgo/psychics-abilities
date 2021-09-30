@@ -1,4 +1,4 @@
-package com.github.noonmaru.psychic.ability.sample
+package com.github.jasgo.psychic.ability.transform
 
 import com.github.noonmaru.psychics.Ability
 import com.github.noonmaru.psychics.AbilityConcept
