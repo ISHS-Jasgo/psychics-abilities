@@ -205,6 +205,6 @@ class Sniper : Ability<SniperConcept>(), Listener {
         val dis = round(distance * 5)
         val random = Random
         val rInt = random.nextInt(1000)
-        return rInt >= dis
+        return rInt <= dis
     }
 }
