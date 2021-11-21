@@ -46,6 +46,7 @@ class OrbConcept : AbilityConcept() {
         wand = item
         supplyItems = listOf(item)
         damage = Damage(DamageType.RANGED, EsperStatistic.Companion.of(EsperAttribute.ATTACK_DAMAGE to 0.01))
+        cooldownTicks = 1200
     }
 }
 class Orb : Ability<OrbConcept>(), Listener {
@@ -63,10 +64,17 @@ class Orb : Ability<OrbConcept>(), Listener {
                     esper.player.sendActionBar(result.message)
                     return
                 }
+                if(esper.player.getCooldown(requireNotNull(event.item).type) > 0) {
+                    esper.player.sendActionBar("재사용 대기시간: " + (esper.player.getCooldown(requireNotNull(event.item).type)/20) + "초")
+                    return
+                }
                 val orbTask = OrbTask(esper.player.location.add(0.0, 15.0, 0.0))
                 val tickTask = psychic.runTaskTimer(orbTask, 0L, 1L)
                 orbTask.task = tickTask
                 psychic.consumeMana(concept.cost)
+                esper.player.run {
+                    setCooldown(requireNotNull(event.item).type, concept.cooldownTicks.toInt())
+                }
             }
         }
     }

@@ -58,7 +58,7 @@ class BeamConcept : AbilityConcept() {
         item.itemMeta = meta
         wand = item
         supplyItems = listOf(item)
-        damage = Damage(DamageType.RANGED, EsperStatistic.of(EsperAttribute.ATTACK_DAMAGE to 0.2))
+        damage = Damage(DamageType.RANGED, EsperStatistic.of(EsperAttribute.ATTACK_DAMAGE to 0.05))
     }
 }
 class Beam : Ability<BeamConcept>(), Listener {
