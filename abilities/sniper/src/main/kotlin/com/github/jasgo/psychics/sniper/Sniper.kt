@@ -72,11 +72,11 @@ class Sniper : Ability<SniperConcept>(), Listener {
 
     @EventHandler
     fun onPlayerInteract(event: PlayerInteractEvent) {
-        val action = event.action;
+        val action = event.action
         if (action == Action.PHYSICAL) return
 
         if (action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK) {
-            if (event.player.inventory.itemInMainHand.equals(concept.wand)) {
+            if (event.player.inventory.itemInMainHand == concept.wand) {
                 if (event.player.getCooldown(event.material) == 0) {
                     val loc1 = event.player.location
                     loc1.pitch -= 10
@@ -97,7 +97,7 @@ class Sniper : Ability<SniperConcept>(), Listener {
     @EventHandler
     fun onShift(event: PlayerToggleSneakEvent) {
         if (!event.player.isSneaking) {
-            if (event.player.inventory.itemInMainHand.equals(concept.wand)) {
+            if (event.player.inventory.itemInMainHand == concept.wand) {
                 event.player.joomIn()
             }
         } else {
