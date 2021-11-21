@@ -202,9 +202,9 @@ class Sniper : Ability<SniperConcept>(), Listener {
     }
 
     private fun bulletSpread(distance: Double): Boolean {
-        val dis = round(distance * 5)
+        val dis = round(distance * 10)
         val random = Random
         val rInt = random.nextInt(1000)
-        return rInt <= dis
+        return rInt >= dis
     }
 }
